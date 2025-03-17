@@ -1,5 +1,5 @@
 // script.js
-const apiKey = "87af61d230dbef7f8b5d1f49ab5c9506"; // Replace with your actual API key
+
 const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("cityInput");
 const cityName = document.getElementById("cityName");
