@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+<!-- Slider layout:https://www.youtube.com/watch?v=OTjmnF27ADk&t=666s
+ Icon animatio: https://www.youtube.com/watch?v=aTL5aFS8Uj4&t=498s-->
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="AllPage.css" />
+    <link rel="stylesheet" href="HomePage.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="first-content" class="ring" role="alert" aria-live="polite">
+      Loading
+      <span class="Loading"></span>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none">
+      <header class="header">
+        <div class="Header-Container">
+          <p class="Top">
+            Learn more about the creator of this web page
+            <a class="here" href="AboutUs.html">HERE!</a>
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <!-- Navigation and Logo -->
+        <div class="container">
+          <img src="BankLogo.png" alt="Bank Logo" class="logo" />
+          <nav class="navbar" aria-label="Primary Navigation">
+            <ul class="nav-links">
+              <li class="nav-link"><a href="HomePage.html">Home</a></li>
+              <li class="nav-link About">
+                <a href="AboutUs.html">About</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true">arrow_drop_down</span>
+                <ul class="drop-down" aria-label="About Dropdown Menu">
+                  <li><a href="AboutUs.html">Our Founder</a></li>
+                  <li><a href="AboutUs.html">Where we are</a></li>
+                  <li><a href="AboutUs.html">What we do</a></li>
+                </ul>
+              </li>
+              <li class="nav-link Contact">
+                <a href="ContactUs.html">Contact</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true">arrow_drop_down</span>
+                <ul class="drop-down" aria-label="Contact Dropdown Menu">
+                  <li><a href="ContactUs.html">Contact Company</a></li>
+                  <li><a href="ContactUs.html">Contact CEO</a></li>
+                  <li><a href="ContactUs.html">Report a problem</a></li>
+                </ul>
+              </li>
+              <li class="nav-link FAQ">
+                <a href="FAQ.html">FAQ</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true">arrow_drop_down</span>
+                <ul class="drop-down" aria-label="FAQ Dropdown Menu">
+                  <li><a href="FAQ.html">Accounts Queries</a></li>
+                  <li><a href="FAQ.html">Structure Queries</a></li>
+                  <li><a href="ContactUs.css">Contact Queries</a></li>
+                </ul>
+              </li>
+              <li class="nav-link MC">
+                <a href="MC.html">Mortgage Calculator</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true">arrow_drop_down</span>
+                <ul class="drop-down" aria-label="Mortgage Calculator Dropdown Menu">
+                  <li><a href="MC.html">See if you're eligible</a></li>
+                  <li><a href="MC.html">Calculator</a></li>
+                  <li><a href="ContactUs.css">Report Problem</a></li>
+                </ul>
+              </li>
+              <li class="nav-link Services">
+                <a href="MC.html">Services</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true">arrow_drop_down</span>
+                <ul class="drop-down" aria-label="Services Dropdown Menu">
+                  <li><a href="services.html">What we provide</a></li>
+                  <li><a href="MC.html">Calculator</a></li>
+                  <li><a href="ContactUs.css">Contact Us</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-container">
+          <img src="HeroPic.jpg" alt="Hero Image" class="HeroPic" />
+          <div class="Quote-container">
+            <span class="multiText">BE A DOER NOT A DREAMER</span>
+          </div>
+        </div>
+
+        <!-- Introduction Section -->
+        <h1 class="Mtitle">Explore all Crown Bank has to offer</h1>
+        <h3 class="Stitle">
+          See how we can help you with current accounts, mortgages, insurance, loans, credit cards, and savings accounts.
+        </h3>
+
+        <!-- Services Section -->
+        <div class="Ncontainer">
+          <div class="slide">
+            <div class="item" style="background-image: url(Pound.jpg);">
+              <div class="content">
+                <div class="name">Current accounts</div>
+                <div class="des">Find a current account that works for you.</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(CreditCard.jpg);">
+              <div class="content">
+                <div class="name">Credit cards</div>
+                <div class="des">Choice is the key to finding the right credit card.</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(Savings.jpg);">
+              <div class="content">
+                <div class="name">Savings accounts</div>
+                <div class="des">Whatever you're dreaming of, you can start saving today.</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(Loans.jpg);">
+              <div class="content">
+                <div class="name">Loans</div>
+                <div class="des">Focus on the future with a personal loan.</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(Mortage.jpg);">
+              <div class="content">
+                <div class="name">Mortgages</div>
+                <div class="des">
+                  Take a look at the range of mortgages we can offer to help with your plans.
+                </div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(Insurance.jpg);">
+              <div class="content">
+                <div class="name">Insurance</div>
+                <div class="des">
+                  Your safety net if things go wrong. Explore our life, tech, business, and travel cover – including our Which? Best Buy 2024 travel insurance.
+                </div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(Investment.jpg);">
+              <div class="content">
+                <div class="name">Investments</div>
+                <div class="des">
+                  Whether you’re a beginner, an expert, or somewhere in between – we can help you make the most of your money.
+                </div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(Offers.jpg);">
+              <div class="content">
+                <div class="name">Offers and subscriptions</div>
+                <div class="des">
+                  Start enjoying your favorite offers and subscriptions through the Barclays app.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Buttons -->
+        <div class="Slider-btn">
+          <button class="prev"><i class="fa-solid fa-arrow-left"> < </i></button>
+          <button class="next"><i class="fa-solid fa-arrow-right"> > </i></button>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Crown Bank. All rights reserved.</p>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="HomePageScript.js" defer></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  </body>
+</html>

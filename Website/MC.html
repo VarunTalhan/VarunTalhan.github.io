@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage Calculator</title>
+    <!-- Loan calculator layout: https://www.youtube.com/watch?v=LW-OOcEBZ7U&t=21s-->
+    <link rel="stylesheet" href="AllPage.css" />
+    <link rel="stylesheet" href="MC.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="first-content" class="ring" role="alert" aria-live="polite">
+      Loading
+      <span class="Loading"></span>
+    </div>
+
+    <div id="main-content" style="display: none">
+      <header class="header">
+        <div class="Header-Container">
+          <p class="Top">
+            Learn more about the creator of this web page
+            <a class="here" href="AboutMe.html">HERE!</a>
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <img src="BankLogo.png" alt="Bank Logo" class="logo" />
+          <nav class="navbar" aria-label="Primary Navigation">
+            <ul class="nav-links">
+              <li class="nav-link"><a href="HomePage.html">Home</a></li>
+              <li class="nav-link About">
+                <a href="AboutUs.html">About</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="About Dropdown Menu">
+                  <li><a href="AboutUs.html">Our Founder</a></li>
+                  <li><a href="AboutUs.html">Where we are</a></li>
+                  <li><a href="AboutUs.html">What we do</a></li>
+                </ul>
+              </li>
+              <li class="nav-link Contact">
+                <a href="ContactUs.html">Contact</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="Contact Dropdown Menu">
+                  <li><a href="ContactUs.html">Contact Company</a></li>
+                  <li><a href="ContactUs.html">Contact CEO</a></li>
+                  <li><a href="ContactUs.html">Report a problem</a></li>
+                </ul>
+              </li>
+              <li class="nav-link FAQ">
+                <a href="FAQ.html">FAQ</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="FAQ Dropdown Menu">
+                  <li><a href="FAQ.html">Accounts Queries</a></li>
+                  <li><a href="FAQ.html">Structure Queries</a></li>
+                  <li><a href="FAQ.html">Contact Queries</a></li>
+                </ul>
+              </li>
+              <li class="nav-link MC">
+                <a href="MC.html">Mortgage Calculator</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul
+                  class="drop-down"
+                  aria-label="Mortgage Calculator Dropdown Menu"
+                >
+                  <li><a href="MC.html">See if you're eligible</a></li>
+                  <li><a href="MC.html">Calculator</a></li>
+                  <li><a href="MC.html">Report Problem</a></li>
+                </ul>
+              </li>
+              <li class="nav-link Services">
+                <a href="Services.html">Services</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="Services Dropdown Menu">
+                  <li><a href="Services.html">What we provide</a></li>
+                  <li><a href="MC.html">Calculator</a></li>
+                  <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="MCTitle">
+          <h1 class="Upper">Mortgage Cost And Repayment</h1>
+        </div>
+
+        <div class="video">
+          <h1 class="VTitle">
+            Check out our video on how to calculate your total loan repayment
+            details!
+          </h1>
+          <video width="480" height="340" controls>
+            <source src="WebsiteRecording (1).mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="loan-calculator">
+          <div class="top">
+            <h2>Loan Calculator</h2>
+            <form action="#">
+              <div class="group">
+                <div class="title">Amount</div>
+                <input type="text" value="30000" class="loan-amount" />
+              </div>
+              <div class="group">
+                <div class="title">Interest Rate</div>
+                <input type="text" value="8.5" class="interest-rate" />
+              </div>
+              <div class="group">
+                <div class="title">Months</div>
+                <input type="text" value="240" class="loan-tenure" />
+              </div>
+              <div class="group">
+                <div class="title">Monthly Income</div>
+                <input type="text" value="3500" class="MI" />
+              </div>
+            </form>
+          </div>
+
+          <div class="result">
+            <div class="left">
+              <div class="loan-emi">
+                <h3>Loan EMI</h3>
+                <div class="value">123</div>
+              </div>
+              <div class="total-interest">
+                <h3>Total Interest Payable</h3>
+                <div class="value">1234</div>
+              </div>
+              <div class="total-amount">
+                <h3>Total Amount</h3>
+                <div class="value">12345</div>
+              </div>
+              <div class="Eligable">
+                <h3>Eligible</h3>
+                <div class="value">Y/N</div>
+              </div>
+              <button class="calculate-btn">Calculate</button>
+            </div>
+
+            <div class="right">
+              <canvas id="myChart" width="400" height="400"></canvas>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Crown Bank. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="HomePageScript.js" defer></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="MC.js"></script>
+  </body>
+</html>

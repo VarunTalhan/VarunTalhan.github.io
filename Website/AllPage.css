@@ -1,0 +1,246 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: white;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border: 3px solid #3c3c3c;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 150px;
+  color: #fff000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #fff000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.ring:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid #fff000;
+  border-right: 3px solid #fff000;
+  border-radius: 50%;
+  animation: animateC 2s linear infinite;
+}
+span.Loading {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
+}
+span.Loading:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff000;
+  top: -6px;
+  right: -8px;
+  box-shadow: 0 0 20px #fff000;
+}
+@keyframes animateC {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+#main-content {
+  display: none;
+}
+
+
+
+.header {
+  height: 5rem;
+  background: linear-gradient(45deg, #000, transparent);
+
+  top: -2%;
+}
+.here {
+  color: gold;
+}
+.Top {
+  color: #fff;
+  margin-top: 0%;
+}
+
+.footer {
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+
+.logo {
+  height: 90px;
+  width: 250px;
+  border-radius: 10px;
+  left: 15%;
+  top: 90px;
+  position: absolute;
+}
+
+.container {
+  display: flex;
+  font-size: 14px;
+  height: 100px;
+  bottom: 90%;
+}
+
+.navbar {
+  margin: auto;
+  padding: 0rem 1.5rem;
+  background-color: rgb(206, 199, 199);
+  border-radius: 1rem;
+  position: absolute;
+  top: 110px;
+  align-items: center;
+  left: 45%;
+  background-color: white;
+  gap: 10px;
+  top: 95px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 14px;
+  padding: 0.3rem 0.8rem;
+}
+
+.nav-link,
+.drop-down li {
+  list-style: none;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.drop-down {
+  position: absolute;
+  padding: 0.5rem 0;
+  margin: 0.5rem -0.5rem;
+  background: black;
+  color: gold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  font-size: 12px;
+  display: none;
+  z-index: 30;
+}
+
+.nav-link:hover {
+  color: black;
+  border-radius: 0.5rem;
+}
+
+.About:hover .drop-down,
+.Contact:hover .drop-down,
+.FAQ:hover .drop-down,
+.MC:hover .drop-down,
+.Services:hover .drop-down {
+  display: block;
+}
+
+.About a,
+.Contact a,
+.FAQ a,
+.MC a,
+.Services a {
+  display: flex;
+}
+
+.dropdown-icon {
+  font-size: 20px;
+  position: relative;
+  right: -5px;
+  transition: 0.3s ease-in-out all;
+}
+
+.About:hover .dropdown-icon,
+.Contact:hover .dropdown-icon,
+.FAQ:hover .dropdown-icon,
+.MC:hover .dropdown-icon,
+.Services:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.SignIn {
+  position: absolute;
+  top: 120px;
+  left: 84%;
+  box-shadow: none;
+  border-color: black;
+  background-color: #fff;
+  height: 40px;
+  width: 80px;
+  border-width: 3px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
+  font-weight: 700;
+}
+
+.SignIn:hover {
+  background-color: black;
+  color: gold;
+}
+
+@media (max-width: 768px) {
+  .navbar,
+  .hero-section,
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo,
+  .SignIn {
+    width: 100%;
+  }
+}

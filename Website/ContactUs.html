@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://kit.fontawesome.com/aa7454d09f.js"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward"
+    />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="AllPage.css" />
+    <link rel="stylesheet" href="ContactUs.css" />
+  </head>
+  <body>
+    <div id="first-content" class="ring" role="alert" aria-live="polite">
+      Loading
+      <span class="Loading"></span>
+    </div>
+
+    <div id="main-content" style="display: none">
+      <header class="header">
+        <div class="Header-Container">
+          <p class="Top">
+            Learn more about the creator of this web page
+            <a class="here" href="AboutUs.html">HERE!</a>
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <img src="BankLogo.png" alt="Bank Logo" class="logo" />
+          <nav class="navbar" aria-label="Primary Navigation">
+            <ul class="nav-links">
+              <li class="nav-link"><a href="HomePage.html">Home</a></li>
+              <li class="nav-link About">
+                <a href="AboutUs.html">About</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="About Dropdown Menu">
+                  <li><a href="AboutUs.html">Our Founder</a></li>
+                  <li><a href="AboutUs.html">Where we are</a></li>
+                  <li><a href="AboutUs.html">What we do</a></li>
+                </ul>
+              </li>
+              <li class="nav-link Contact">
+                <a href="Contact.html">Contact</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="Contact Dropdown Menu">
+                  <li><a href="Contact.html">Contact Company</a></li>
+                  <li><a href="Contact.html">Contact CEO</a></li>
+                  <li><a href="Contact.html">Report a problem</a></li>
+                </ul>
+              </li>
+              <li class="nav-link FAQ">
+                <a href="FAQ.html">FAQ</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="FAQ Dropdown Menu">
+                  <li><a href="FAQ.html">Accounts Queries</a></li>
+                  <li><a href="FAQ.html">Structure Queries</a></li>
+                  <li><a href="FAQ.html">Contact Queries</a></li>
+                </ul>
+              </li>
+              <li class="nav-link MC">
+                <a href="MC.html">Mortgage Calculator</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul
+                  class="drop-down"
+                  aria-label="Mortgage Calculator Dropdown Menu"
+                >
+                  <li><a href="MC.html">See if you're eligible</a></li>
+                  <li><a href="MC.html">Calculator</a></li>
+                  <li><a href="MC.html">Report Problem</a></li>
+                </ul>
+              </li>
+              <li class="nav-link Services">
+                <a href="Services.html">Services</a>
+                <span class="material-icons dropdown-icon" aria-hidden="true"
+                  >arrow_drop_down</span
+                >
+                <ul class="drop-down" aria-label="Services Dropdown Menu">
+                  <li><a href="Services.html">What we provide</a></li>
+                  <li><a href="MC.html">Calculator</a></li>
+                  <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <section class="Form">
+          <h4 class="sectionHeader">Contact Us</h4>
+          <h1 class="heading">Get in touch</h1>
+          <p class="para">
+            Whenever you need us, we're here for you and your banking security
+          </p>
+
+          <div class="contactForm">
+            <form action="#">
+              <h1 class="sub-heading">Need Support!</h1>
+              <p class="para para2">Contact Us for a quote</p>
+              <p id="formMessage" style="display: none"></p>
+
+              <input
+                type="text"
+                id="name"
+                class="input"
+                placeholder="your name"
+              />
+              <input
+                type="text"
+                id="email"
+                class="input"
+                placeholder="your email"
+              />
+              <input
+                type="text"
+                id="subjec"
+                class="input"
+                placeholder="your Subject"
+              />
+              <textarea
+                class="input"
+                id="message"
+                cols="30"
+                rows="5"
+                placeholder="Your message..."
+              ></textarea>
+              <input type="submit" class="input submit" value="Send Message" />
+            </form>
+
+            <div class="map-container">
+              <div class="map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d856.4076935859908!2d-1.129527113663267!3d52.61866204530564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4877612ecfb02d99%3A0x18d106c8c16cb37d!2sFreemen's%20Cottages%20-%20University%20of%20Leicester!5e0!3m2!1sen!2suk!4v1731866797210!5m2!1sen!2suk"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="contactMethod">
+            <div class="method">
+              <i class="fa-solid fa-location-dot contactIcon"></i>
+              <article class="text">
+                <h1 class="sub-heading">Location</h1>
+                <p class="para">161 Welford Rd, Leicester LE2 6BF</p>
+              </article>
+            </div>
+
+            <div class="method">
+              <i class="fa-solid fa-envelope contactIcon"></i>
+              <article class="text">
+                <h1 class="sub-heading">Email</h1>
+                <p class="para">Email: vt100@student.le.ac.uk</p>
+              </article>
+            </div>
+
+            <div class="method">
+              <i class="fa-solid fa-phone contactIcon"></i>
+              <article class="text">
+                <h1 class="sub-heading">Phone</h1>
+                <p class="para">07388 916279</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Crown Bank. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="HomePageScript.js" defer></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="ContactUs.js"></script>
+  </body>
+</html>
