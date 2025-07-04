@@ -1,0 +1,16 @@
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\bin\Debug\IDK honestly.exe.config
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\bin\Debug\IDK honestly.exe
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\bin\Debug\IDK honestly.pdb
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\obj\Debug\IDK honestly.csproj.AssemblyReference.cache
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\obj\Debug\IDK honestly.csproj.SuggestedBindingRedirects.cache
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\obj\Debug\IDK honestly.csproj.CoreCompileInputs.cache
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\obj\Debug\IDK honestly.exe
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\IDK honestly\obj\Debug\IDK honestly.pdb
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\bin\Debug\IDK honestly.exe.config
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\bin\Debug\IDK honestly.exe
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\bin\Debug\IDK honestly.pdb
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\obj\Debug\IDK honestly.csproj.AssemblyReference.cache
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\obj\Debug\IDK honestly.csproj.SuggestedBindingRedirects.cache
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\obj\Debug\IDK honestly.csproj.CoreCompileInputs.cache
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\obj\Debug\IDK honestly.exe
+C:\Users\varun\OneDrive\Documents\Varun A-Levels\Computer Science\Battleship game\obj\Debug\IDK honestly.pdb
