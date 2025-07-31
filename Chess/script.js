@@ -365,7 +365,10 @@ document.addEventListener("DOMContentLoaded", () => {
  * @param {object} moveHistory
  * @param {object|null} lastMove
  * @returns {string[]}
+ *
+ *
  */
+const moveCache = new Map();
 function getValidMoves(
   squareId,
   piece,
@@ -374,6 +377,14 @@ function getValidMoves(
   lastMove,
   skipKingSafetyCheck = false
 ) {
+  // Create cache key
+  const cacheKey = `${squareId}_${piece.type}_${piece.color}_${JSON.stringify(
+    boardState
+  )}`;
+
+  if (moveCache.has(cacheKey)) {
+    return moveCache.get(cacheKey);
+  }
   const fileLetters = "ABCDEFGH";
   const rank = parseInt(squareId[0], 10);
   const file = squareId[1];
@@ -618,6 +629,13 @@ function getValidMoves(
       validMoves.push(`${startRank}C`);
     }
   }
+  if (validMoves.length === 0) {
+    console.log(
+      `No valid moves found for ${piece.color} ${piece.type} at ${squareId}`
+    );
+  }
+  // Store in cache before returning
+  moveCache.set(cacheKey, validMoves);
   return validMoves;
 }
 
@@ -630,9 +648,19 @@ function getValidMoves(
  */
 function isSquareUnderAttack(squareId, ownColor, boardState) {
   const opponentColor = ownColor === "white" ? "black" : "white";
+  console.log(
+    `Checking if square ${squareId} is under attack by ${opponentColor}`
+  );
   const fileLetters = "ABCDEFGH";
   const rank = parseInt(squareId[0], 10);
   const file = squareId[1];
+  const originalBoard = JSON.parse(JSON.stringify(boardState));
+  const tempBoard = JSON.parse(JSON.stringify(boardState));
+
+  // Temporarily remove the king if checking for checks
+  if (tempBoard[squareId]?.type === "king") {
+    delete tempBoard[squareId];
+  }
 
   // Scan all opponent pieces and check if they can move to squareId
   for (const [pos, piece] of Object.entries(boardState)) {
@@ -698,8 +726,11 @@ function scoreMove(piece, toSquareId, boardState) {
   // Add more rules as needed!
   return score;
 }
-
 function performAIMove(aiColor) {
+  const startTime = Date.now();
+
+  // Clear cache before new move calculation
+  moveCache.clear();
   const aiPieces = Object.entries(boardState).filter(
     ([_, piece]) => piece.color === aiColor
   );
@@ -707,7 +738,7 @@ function performAIMove(aiColor) {
   let bestMove = null;
   let bestScore = -Infinity;
 
-  // 🔍 Evaluate all valid moves and score them
+  // Evaluate all possible moves
   for (const [squareId, piece] of aiPieces) {
     const validMoves = getValidMoves(
       squareId,
@@ -718,8 +749,15 @@ function performAIMove(aiColor) {
     );
 
     for (const targetSquare of validMoves) {
-      const score = evaluateTactics(squareId, targetSquare, piece, boardState);
+      // Simulate the move without affecting real board
+      const simulatedBoard = JSON.parse(JSON.stringify(boardState));
+      simulatedBoard[targetSquare] = simulatedBoard[squareId];
+      delete simulatedBoard[squareId];
 
+      // Score the move using multiple factors
+      const score = evaluateBoard(simulatedBoard, aiColor);
+
+      // If this move is better than previous best, update
       if (score > bestScore) {
         bestScore = score;
         bestMove = {
@@ -731,36 +769,39 @@ function performAIMove(aiColor) {
     }
   }
 
-  // ❌ No valid moves found
+  // If no moves found (shouldn't happen unless game is over)
   if (!bestMove) {
     showGameMessage("AI has no valid moves.");
     return;
   }
 
-  // 🚀 Execute the move
+  // ========== YOUR ORIGINAL MOVE EXECUTION CODE BELOW ==========
   const fromSquareElem = document.getElementById(bestMove.from);
   const toSquareElem = document.getElementById(bestMove.to);
   const pieceImg = fromSquareElem.querySelector("img");
 
   if (!pieceImg) return;
 
-  // Capture logic
+  // Capture any piece on destination square
   toSquareElem.innerHTML = "";
   toSquareElem.appendChild(pieceImg);
 
-  boardState[bestMove.to] = bestMove.piece;
+  // Update board state
+  boardState[bestMove.to] = boardState[bestMove.from];
   delete boardState[bestMove.from];
 
+  // Update move history
   lastMove = {
     piece: bestMove.piece,
     from: bestMove.from,
     to: bestMove.to,
   };
 
+  // Switch turn to player
   currentTurn = "white";
   clearHighlights();
 
-  // 🎯 Update draggable state
+  // Update draggable state to allow player to move
   document.querySelectorAll("img").forEach((img) => {
     const parent = img.parentElement;
     const squarePiece = boardState[parent?.id];
@@ -772,6 +813,86 @@ function performAIMove(aiColor) {
   });
 
   showGameMessage("AI has moved. Your turn, white!");
+  console.log(`AI thinking time: ${Date.now() - startTime}ms`);
+}
+
+// Simple evaluation function
+function evaluateBoard(boardState, aiColor) {
+  let score = 0;
+  const pieceValues = {
+    pawn: 10,
+    knight: 30,
+    bishop: 30,
+    rook: 50,
+    queen: 90,
+    king: 900,
+  };
+
+  // 1. Material count
+  for (const piece of Object.values(boardState)) {
+    score +=
+      piece.color === aiColor
+        ? pieceValues[piece.type]
+        : -pieceValues[piece.type];
+  }
+
+  // 2. Add bonuses for center control
+  const centerSquares = ["D4", "E4", "D5", "E5"];
+  for (const [pos, piece] of Object.entries(boardState)) {
+    if (piece.color === aiColor && centerSquares.includes(pos)) {
+      score += 5; // Bonus for controlling center
+    }
+  }
+
+  // 3. Bonus for checking opponent
+  const opponentColor = aiColor === "white" ? "black" : "white";
+  if (isKingInCheck(opponentColor, boardState)) {
+    score += 50; // Bonus for putting opponent in check
+  }
+
+  return score;
+}
+
+function findBestMove(boardState, aiColor, depth) {
+  let bestMove = null;
+  let bestScore = -Infinity;
+
+  const aiPieces = Object.entries(boardState).filter(
+    ([pos, piece]) => piece.color === aiColor
+  );
+
+  for (const [fromSquareId, piece] of aiPieces) {
+    const validMoves = getValidMoves(
+      fromSquareId,
+      piece,
+      boardState,
+      moveHistory,
+      lastMove
+    );
+
+    for (const toSquareId of validMoves) {
+      const simulatedBoard = JSON.parse(JSON.stringify(boardState));
+      simulatedBoard[toSquareId] = simulatedBoard[fromSquareId];
+      delete simulatedBoard[fromSquareId];
+
+      // Only evaluate as AI's turn (maximizing player)
+      const score = minimax(
+        simulatedBoard,
+        depth - 1,
+        false, // Next evaluation is for opponent (minimizing)
+        -Infinity,
+        Infinity,
+        aiColor
+      );
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMove = { from: fromSquareId, to: toSquareId, piece };
+      }
+    }
+  }
+
+  return bestMove;
 }
 
 function clearHighlights() {
@@ -836,4 +957,85 @@ function evaluateTactics(from, to, piece, board) {
   }
 
   return score;
+}
+
+function minimax(boardState, depth, isMaximizingPlayer, alpha, beta, aiColor) {
+  // Base case: Return evaluation if depth is 0 or game ends
+  if (depth === 0 || isGameOver(boardState)) {
+    return evaluateBoard(boardState, aiColor);
+  }
+
+  if (isMaximizingPlayer) {
+    // AI's turn (maximize score)
+    let maxEval = -Infinity;
+    const aiPieces = Object.entries(boardState).filter(
+      ([_, piece]) => piece.color === aiColor
+    );
+
+    for (const [fromSquareId, piece] of aiPieces) {
+      const validMoves = getValidMoves(
+        fromSquareId,
+        piece,
+        boardState,
+        moveHistory,
+        lastMove
+      );
+
+      for (const toSquareId of validMoves) {
+        const simulatedBoard = JSON.parse(JSON.stringify(boardState));
+        simulatedBoard[toSquareId] = simulatedBoard[fromSquareId];
+        delete simulatedBoard[fromSquareId];
+
+        const eval = minimax(
+          simulatedBoard,
+          depth - 1,
+          false, // Opponent's turn next
+          alpha,
+          beta,
+          aiColor
+        );
+
+        maxEval = Math.max(maxEval, eval);
+        alpha = Math.max(alpha, eval);
+        if (beta <= alpha) break; // Alpha-beta pruning
+      }
+    }
+    return maxEval;
+  } else {
+    // Opponent's turn (minimize score)
+    let minEval = Infinity;
+    const opponentPieces = Object.entries(boardState).filter(
+      ([_, piece]) => piece.color !== aiColor
+    );
+
+    for (const [fromSquareId, piece] of opponentPieces) {
+      const validMoves = getValidMoves(
+        fromSquareId,
+        piece,
+        boardState,
+        moveHistory,
+        lastMove
+      );
+
+      for (const toSquareId of validMoves) {
+        const simulatedBoard = JSON.parse(JSON.stringify(boardState));
+        simulatedBoard[toSquareId] = simulatedBoard[fromSquareId];
+        delete simulatedBoard[fromSquareId];
+
+        const eval = minimax(
+          simulatedBoard,
+          depth - 1,
+          true, // AI's turn next
+          alpha,
+          beta,
+          aiColor
+        );
+
+        minEval = Math.min(minEval, eval);
+        beta = Math.min(beta, eval);
+        if (beta <= alpha) break; // Alpha-beta pruning
+      }
+    }
+    return minEval;
+  }
 }
