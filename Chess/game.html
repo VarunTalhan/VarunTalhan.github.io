@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Chess</title>
+  </head>
+  <body>
+    <div id="whiteTimer">White: 10:00</div>
+    <div id="blackTimer">Black: 10:00</div>
+    <div id="message-container"></div>
+    <div class="container">
+      <!-- Row 8 -->
+      <div class="white" data-rank="8" data-file="A" id="8A">
+        <img src="pieces/wR.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="8" data-file="B" id="8B">
+        <img src="pieces/wN.png" draggable="true" />
+      </div>
+      <div class="white" data-rank="8" data-file="C" id="8C">
+        <img src="pieces/wB.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="8" data-file="D" id="8D">
+        <img src="pieces/wK.png" draggable="true" />
+      </div>
+      <div class="white" data-rank="8" data-file="E" id="8E">
+        <img src="pieces/wQ.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="8" data-file="F" id="8F">
+        <img src="pieces/wB.png" draggable="true" />
+      </div>
+      <div class="white" data-rank="8" data-file="G" id="8G">
+        <img src="pieces/wN.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="8" data-file="H" id="8H">
+        <img src="pieces/wR.png" draggable="true" />
+      </div>
+
+      <!-- Row 7 -->
+      <div class="black" data-rank="7" data-file="A" id="7A">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="7" data-file="B" id="7B">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="7" data-file="C" id="7C">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="7" data-file="D" id="7D">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="7" data-file="E" id="7E">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="7" data-file="F" id="7F">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="7" data-file="G" id="7G">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="7" data-file="H" id="7H">
+        <img src="pieces/wP.png" alt="White Pawn" draggable="true" />
+      </div>
+
+      <!-- Row 6 -->
+      <div class="white" data-rank="6" data-file="A" id="6A"></div>
+      <div class="black" data-rank="6" data-file="B" id="6B"></div>
+      <div class="white" data-rank="6" data-file="C" id="6C"></div>
+      <div class="black" data-rank="6" data-file="D" id="6D"></div>
+      <div class="white" data-rank="6" data-file="E" id="6E"></div>
+      <div class="black" data-rank="6" data-file="F" id="6F"></div>
+      <div class="white" data-rank="6" data-file="G" id="6G"></div>
+      <div class="black" data-rank="6" data-file="H" id="6H"></div>
+
+      <!-- Row 5 -->
+      <div class="black" data-rank="5" data-file="A" id="5A"></div>
+      <div class="white" data-rank="5" data-file="B" id="5B"></div>
+      <div class="black" data-rank="5" data-file="C" id="5C"></div>
+      <div class="white" data-rank="5" data-file="D" id="5D"></div>
+      <div class="black" data-rank="5" data-file="E" id="5E"></div>
+      <div class="white" data-rank="5" data-file="F" id="5F"></div>
+      <div class="black" data-rank="5" data-file="G" id="5G"></div>
+      <div class="white" data-rank="5" data-file="H" id="5H"></div>
+
+      <!-- Row 4 -->
+      <div class="white" data-rank="4" data-file="A" id="4A"></div>
+      <div class="black" data-rank="4" data-file="B" id="4B"></div>
+      <div class="white" data-rank="4" data-file="C" id="4C"></div>
+      <div class="black" data-rank="4" data-file="D" id="4D"></div>
+      <div class="white" data-rank="4" data-file="E" id="4E"></div>
+      <div class="black" data-rank="4" data-file="F" id="4F"></div>
+      <div class="white" data-rank="4" data-file="G" id="4G"></div>
+      <div class="black" data-rank="4" data-file="H" id="4H"></div>
+
+      <!-- Row 3 -->
+      <div class="black" data-rank="3" data-file="A" id="3A"></div>
+      <div class="white" data-rank="3" data-file="B" id="3B"></div>
+      <div class="black" data-rank="3" data-file="C" id="3C"></div>
+      <div class="white" data-rank="3" data-file="D" id="3D"></div>
+      <div class="black" data-rank="3" data-file="E" id="3E"></div>
+      <div class="white" data-rank="3" data-file="F" id="3F"></div>
+      <div class="black" data-rank="3" data-file="G" id="3G"></div>
+      <div class="white" data-rank="3" data-file="H" id="3H"></div>
+
+      <!-- Row 2 -->
+      <div class="white" data-rank="2" data-file="A" id="2A">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="2" data-file="B" id="2B">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="2" data-file="C" id="2C">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="2" data-file="D" id="2D">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="2" data-file="E" id="2E">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="2" data-file="F" id="2F">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="white" data-rank="2" data-file="G" id="2G">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+      <div class="black" data-rank="2" data-file="H" id="2H">
+        <img src="pieces/bP.png" alt="Black Pawn" draggable="true" />
+      </div>
+
+      <!-- Row 1 -->
+      <div class="black" data-rank="1" data-file="A" id="1A">
+        <img src="pieces/bR.png" draggable="true" />
+      </div>
+      <div class="white" data-rank="1" data-file="B" id="1B">
+        <img src="pieces/bN.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="1" data-file="C" id="1C">
+        <img src="pieces/bB.png" draggable="true" />
+      </div>
+      <div class="white" data-rank="1" data-file="D" id="1D">
+        <img src="pieces/bQ.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="1" data-file="E" id="1E">
+        <img src="pieces/bK.png" draggable="true" />
+      </div>
+      <div class="white" data-rank="1" data-file="F" id="1F">
+        <img src="pieces/bB.png" draggable="true" />
+      </div>
+      <div class="black" data-rank="1" data-file="G" id="1G">
+        <img src="pieces/bN.png" alt="Black Knight" draggable="true" />
+      </div>
+      <div class="white" data-rank="1" data-file="H" id="1H">
+        <img src="pieces/bR.png" alt="Black Rook" draggable="true" />
+      </div>
+    </div>
+    <div id="gameMessage" class="message-bar"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

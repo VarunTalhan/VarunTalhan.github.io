@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess | Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="home-container">
+      <h1 class="game-title">♛ Chess Chronicles ♚</h1>
+      <p class="tagline">Choose your battlefield</p>
+
+      <div class="menu-buttons">
+        <button class="mode-button" onclick="startGame('ai')">
+          🧠 Play vs AI
+        </button>
+        <button class="mode-button" onclick="startGame('local')">
+          👥 2 Player Local
+        </button>
+      </div>
+
+      <div class="theme-toggle">
+        <label>
+          <input type="checkbox" id="themeSwitch" />
+          <span>🌗 Toggle Dark Mode</span>
+        </label>
+      </div>
+    </div>
+
+    <script>
+      function startGame(mode) {
+        window.location.href = `game.html?mode=${mode}`;
+      }
+
+      const themeToggle = document.getElementById("themeSwitch");
+      themeToggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark-theme");
+      });
+    </script>
+  </body>
+</html>

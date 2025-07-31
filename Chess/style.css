@@ -1,0 +1,332 @@
+/* ========================= */
+/* 🏠 Home Page Styles */
+/* ========================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #f5f5f5;
+  font-family: "Orbitron", sans-serif;
+  min-height: 100vh;
+}
+/* Remove all dark-theme related classes and animations since we're always dark now */
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 80px;
+  text-align: center;
+}
+.game-title {
+  font-family: "Playfair Display", serif;
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 10px;
+  animation: pulseTitle 1.5s infinite alternate;
+  text-shadow: 0 0 8px #ff00c8, 0 0 12px #00f0ff, 0 0 16px #00ff5e,
+    0 0 20px #ffea00;
+}
+
+@keyframes pulseTitle {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.tagline {
+  font-size: 20px;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+.menu-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.menu-buttons button,
+.mode-button {
+  margin: 15px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.mode-button {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.mode-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(142, 148, 251, 0.8),
+    0 0 30px rgba(142, 148, 251, 0.6);
+}
+
+.menu-buttons button:hover {
+  background-color: #666;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.theme-toggle {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* ========================= */
+/* ♟️ Chess Game Styles */
+/* ========================= */
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 90vmin;
+  height: 90vmin;
+  margin: 40px auto;
+  border: 6px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  animation: fadeBoard 0.6s ease-in, rgbPulse 6s linear infinite;
+}
+
+@keyframes fadeBoard {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.white,
+.black {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: outline 0.3s ease;
+}
+
+.white {
+  background-color: #f0d9b5;
+}
+
+.black {
+  background-color: #b58863;
+}
+
+.white:hover,
+.black:hover {
+  outline: 3px solid #66ccff;
+  cursor: pointer;
+}
+
+.container > div[data-file="A"]::before {
+  content: attr(data-rank);
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+  user-select: none;
+}
+
+.container > div[data-rank="1"]::after {
+  content: attr(data-file);
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+  user-select: none;
+}
+
+.white img,
+.black img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.highlight {
+  animation: pulseHighlight 0.8s infinite alternate;
+}
+
+@keyframes pulseHighlight {
+  from {
+    box-shadow: inset 0 0 0 5px rgba(100, 200, 255, 0.4);
+  }
+  to {
+    box-shadow: inset 0 0 0 6px rgba(100, 200, 255, 0.6);
+  }
+}
+
+.check {
+  box-shadow: inset 0 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+#whiteTimer,
+#blackTimer {
+  font-family: "Orbitron", sans-serif;
+  font-size: 24px;
+  color: #f1f1f1;
+  background-color: #222;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 140px;
+  text-align: center;
+  margin: 10px;
+  position: absolute;
+  z-index: 10;
+}
+
+#whiteTimer {
+  top: 20px;
+  left: 20px;
+}
+
+#blackTimer {
+  top: 20px;
+  right: 20px;
+}
+
+#whiteTimer.low-time,
+#blackTimer.low-time {
+  color: #ff3b3b;
+  box-shadow: 0 0 12px red;
+}
+
+/* ========================= */
+/* 💬 Game Messages */
+/* ========================= */
+#gameMessage,
+.message-bar {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  padding: 12px;
+  margin: 20px auto;
+  width: 90%;
+  color: white;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.message-bar.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.message-bar.checkmate {
+  background-color: #cc0000;
+}
+
+.message-bar.stalemate {
+  background-color: #666;
+}
+
+/* 🔮 Neon Title Animation */
+.game-title {
+  color: #fff;
+  text-shadow: 0 0 8px #ff00c8, 0 0 12px #00f0ff, 0 0 16px #00ff5e,
+    0 0 20px #ffea00;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+/* ✨ Glow Animation for Home Page */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 12px #ff00c8;
+  }
+  25% {
+    text-shadow: 0 0 12px #00f0ff;
+  }
+  50% {
+    text-shadow: 0 0 12px #00ff5e;
+  }
+  75% {
+    text-shadow: 0 0 12px #ffea00;
+  }
+  100% {
+    text-shadow: 0 0 12px #ff00c8;
+  }
+}
+
+/* 🌀 RGB Board Glow */
+@keyframes rgbPulse {
+  0% {
+    box-shadow: 0 0 12px #ff0040, 0 0 24px #ff0040;
+  }
+  25% {
+    box-shadow: 0 0 12px #ffea00, 0 0 24px #ffea00;
+  }
+  50% {
+    box-shadow: 0 0 12px #00ffea, 0 0 24px #00ffea;
+  }
+  75% {
+    box-shadow: 0 0 12px #4e00ff, 0 0 24px #4e00ff;
+  }
+  100% {
+    box-shadow: 0 0 12px #ff0040, 0 0 24px #ff0040;
+  }
+}
+
+/* ⚡ Button Glow */
+.mode-button:hover,
+.menu-buttons button:hover {
+  box-shadow: 0 0 20px #ff00c8, 0 0 30px #00ffea, 0 0 40px #4e00ff;
+  transform: scale(1.1);
+  background-color: #222;
+}
+
+/* 🌑 Optional Glow for Dark Theme */
+body.dark-theme {
+  background-color: #000;
+  animation: darkGlow 6s ease-in-out infinite;
+}
+
+@keyframes darkGlow {
+  0% {
+    box-shadow: inset 0 0 40px #ff00c8;
+  }
+  50% {
+    box-shadow: inset 0 0 40px #00f0ff;
+  }
+  100% {
+    box-shadow: inset 0 0 40px #ff00c8;
+  }
+}
+
+.white:hover img,
+.black:hover img {
+  filter: drop-shadow(0 0 10px #66ccff);
+}
