@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        input{
+            display: none;           
+        }
+
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            border: 10px dashed #999;
+            padding: 20px;                /* Reduced padding to fit better inside the fixed height */
+            margin: 20px;
+            text-align: center;           /* Center label text horizontally */
+            line-height: 60px;            /* Vertically center text (adjust based on font size) */
+            cursor: pointer;              /* Show pointer cursor to indicate clickable */
+        }
+        label:hover{
+            color: #de0611;
+            border: 10px dashed #de0611;
+        }
+
+        pre{
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="DataSound.js" defer></script>
+    <script src="https://unpkg.com/tone@14.8.39/build/Tone.js"></script>
+    <title>File Tone Js</title>
+</head>
+<body>
+    <input multiple type="file" id="file">
+    <label for="file">Upload File</label>
+    <pre class="output">Selected Files: </pre>
+</body>
+</html>
